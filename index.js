@@ -9,9 +9,11 @@
     }
 
     $('li').click(function(){
-
-      setting=corectOptions({direction:($('input.down').is(':checked')),
-      index:($('input.index').val()),debug:($('input.debug').is(':checked'))});
+      setting=corectOptions({
+        direction:($('input.down').is(':checked')),
+        index:($('input.index').val()),
+        debug:($('input.debug').is(':checked'))
+      });
       this_position=$(this).offset().top-8+'px';
       if (setting.direction) {
         element_down=$('li').length-Number(setting.index)-1;
@@ -30,9 +32,9 @@
         } else {
           position=$('li').eq(element_up).before("<div></div>");
         }
-     })
+      })
      .animate({left:"-=200px"},
-         function(){
+          function(){
             $('div').replaceWith($("li.stoped"));
             $('li.stoped').css({position:'static'});
             $('li.stoped').removeClass('stoped');
